@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ionic Material Custom Colors</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <!--
+<link rel="stylesheet" href="css/dependencies/font-awesome.min.css">
+<link rel="stylesheet" href="css/dependencies/angular-material.min.css">
+-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.4/angular-material.min.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="ioniccss" ng-cloak>
+  <div>
+    <md-toolbar class="md-primary md-hue-2 zeroPaddingBottom" style="background-color:#0097A7;position:fixed!important">
+      <div layout="row " layout-md="row " layout-sm="column ">
+        <div class="md-toolbar-tools " layout-align="start center ">
+          <md-button class="md-icon-button " aria-label="Settings ">
+            <i style="font-size: 3em; " class="fa  fa-css3 fa-fw "></i>
+          </md-button>
+          <h1><span class="md-title ">Ionic Material Custom Colors</span></h1>
+        </div>
+      </div>
+    </md-toolbar>
+  </div>
+  <div ng-controller="AppCtrl as appCtrl" ng-cloak style="padding-top:65px;" class="padding">
+    <md-content layout-padding>
+      <h3>Steps: </h3>
+      <ol>
+        <li>Check colors you want to include in custom CSS file</li>
+        <li>Click on download button. This will generate a CSS with custom colors</li>
+        <li>Include this CSS in your index.html or include it in your SCSS file after "Include all of Ionic"</li>
+        <li>Ensure that you have ionic material CSS in index.html</li>
+        <li>Use these custom colors as assertive-700, calm-400 etc.</li>
+      </ol>
+      <div>
+        <div flex layout="row" layout-align="end center">
+          <a download="ionic-material-custom-colors.css" ng-href="{{ url }}" class="md-button md-raised md-primary" ng-click="createCSS(selected)">Download CSS</a>
+          <a class="md-button md-raised md-clear" ng-click="clearCSS()">Clear Selection</a>
+        </div>
+        <div ng-show='selected != ""'>
+          <h3>Selected</h3>
+          <div layout="row">
+            <div flex flex-md-50 flex-sm-100 ng-repeat="tile in selected" ng-style="{'background': tile.color}">
+              <md-checkbox aria-label="checkbox" class="md-primary md-align-top-left" ng-checked="exists(tile, selected,'assertive')" ng-click="toggle(tile, selected,'assertive')"></md-checkbox>
+              <h5 class="md-align-bottom-left" ng-style="{'color': tile.textColor}"><center>{{tile.color}} <br> {{tile.shadeNumber}} </center></h5>
+            </div>
+          </div>
+        </div>
+        <div flex>
+          <h3>Assertive</h3>
+          <div layout="row">
+            <div flex flex-md-50 flex-sm-100 ng-repeat="tile in appCtrl.RED" ng-style="{'background': tile.color}">
+              <md-checkbox aria-label="checkbox" class="md-primary md-align-top-left" ng-checked="exists(tile, selected,'assertive')" ng-click="toggle(tile, selected,'assertive')"></md-checkbox>
+              <h5 class="md-align-bottom-left" ng-style="{'color': tile.textColor}"><center>{{tile.color}} <br> {{tile.shadeNumber}} </center></h5>
+            </div>
+          </div>
+          <hr>
+          <h3>Royal</h3>
+          <div layout="row">
+            <div flex ng-repeat="tile in appCtrl.DEEPPURPLE" ng-style="{'background': tile.color}">
+              <md-checkbox aria-label="checkbox" class="md-warn md-align-top-left" ng-checked="exists(tile, selected)" ng-click="toggle(tile, selected)"></md-checkbox>
+              <h5 class="md-align-bottom-left" ng-style="{'color': tile.textColor}"><center>{{tile.color}} <br> {{tile.shadeNumber}} </center></h5>
+            </div>
+          </div>
+          <hr>
+          <h3>Balanced</h3>
+          <div layout="row">
+            <div flex ng-repeat="tile in appCtrl.GREEN" ng-style="{'background': tile.color}">
+              <md-checkbox aria-label="checkbox" class="md-warn md-align-top-left" ng-checked="exists(tile, selected)" ng-click="toggle(tile, selected)"></md-checkbox>
+              <h5 class="md-align-bottom-left" ng-style="{'color': tile.textColor}"><center>{{tile.color}} <br> {{tile.shadeNumber}} </center></h5>
+            </div>
+          </div>
+          <hr>
+          <h3>Positive</h3>
+          <div layout="row">
+            <div flex ng-repeat="tile in appCtrl.INDIGO" ng-style="{'background': tile.color}">
+              <md-checkbox aria-label="checkbox" class="md-warn md-align-top-left" ng-checked="exists(tile, selected)" ng-click="toggle(tile, selected)"></md-checkbox>
+              <h5 class="md-align-bottom-left" ng-style="{'color': tile.textColor}"><center>{{tile.color}} <br> {{tile.shadeNumber}} </center></h5>
+            </div>
+          </div>
+          <hr>
+          <h3>Energized</h3>
+          <div layout="row">
+            <div flex ng-repeat="tile in appCtrl.ORANGE" ng-style="{'background': tile.color}">
+              <md-checkbox aria-label="checkbox" class="md-primary md-align-top-left" ng-checked="exists(tile, selected)" ng-click="toggle(tile, selected)"></md-checkbox>
+              <h5 class="md-align-bottom-left" ng-style="{'color': tile.textColor}"><center>{{tile.color}} <br> {{tile.shadeNumber}} </center></h5>
+            </div>
+          </div>
+          <hr>
+          <h3>Calm</h3>
+          <div layout="row">
+            <div flex ng-repeat="tile in appCtrl.BLUE" ng-style="{'background': tile.color}">
+              <md-checkbox aria-label="checkbox" class="md-warn md-align-top-left" ng-checked="exists(tile, selected)" ng-click="toggle(tile, selected)"></md-checkbox>
+              <h5 class="md-align-bottom-left" ng-style="{'color': tile.textColor}"><center>{{tile.color}} <br> {{tile.shadeNumber}} </center></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-content>
+  </div>
+  <!--
+<script src="js/dependencies/angular.min.js "></script>
+<script src="js/dependencies/angular-aria.min.js "></script>
+<script src="js/dependencies/angular-animate.min.js "></script>
+<script src="js/dependencies/angular-material.min.js "></script>
+-->
+  <!-- Angular Material Dependencies -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <!-- Angular Material Javascript now available via Google CDN; version 0.11.2 used here -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.4/angular-material.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
