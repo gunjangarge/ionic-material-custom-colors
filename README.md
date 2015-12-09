@@ -3,4 +3,5 @@ Create custom CSS with different shades for basic ionic material colors like ass
 Currently supported components are buttons, bars, checkbox and ranges.
 
 
-Working demo: https://ionic-material-custom-colors.firebaseapp.com
+Working demo: 
+http://gunjangarge.github.io/ionic-material-custom-colors
